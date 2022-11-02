@@ -1,0 +1,29 @@
+name: s3Config
+on:
+  workflow_dispatch:
+jobs:
+  S3Create:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v3
+      
+    - name: AWS CLI
+      id: install-aws-cli
+      uses: unfor19/install-aws-cli-action@master
+    - run: aws --version
+      shell: bash
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@13d241b293754004c80624b5567555c4a39ffbe3
+      with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+#     - name: Configure AWS Credentials
+#       uses: aws-actions/configure-aws-credentials@v1
+#       with:
+#         role-to-assume: arn:aws:iam::847370586410:role/JD-AppModernization-SME-Role
+#         role-session-name: GitHubActions
+#         role-duration-seconds: 1200
+#         role-skip-session-tagging: true
+    - name: S3-Create
+    - run: aws s3api create-bucket --bucket my-bucket --region us-west-2

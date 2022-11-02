@@ -1,0 +1,20 @@
+[
+  {
+    "name": "app-mod-web",
+    "essential": true,
+    "image": "847370586410.dkr.ecr.us-west-2.amazonaws.com/appmod:initial",
+    "mountPoints": [
+  ],
+    "memory": 1024,
+    "cpu": 512,
+    "networkMode": "awsvpc",
+    "requiresCompatibilities": "FARGATE",
+    "portMappings": [
+      {
+        "containerPort": 8080,
+        "hostPort": 8080,
+        "protocol": "tcp"
+      }
+    ]
+  }
+]

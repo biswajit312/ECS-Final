@@ -1,0 +1,89 @@
+
+
+name: 'Terraform'
+# on:
+# push:
+#    branches:
+#   - "master"
+#  pull_request:
+
+on:
+  workflow_dispatch:
+    inputs:
+      choice:
+        type: choice
+        description: Action
+        options: 
+        - TerraformApply
+        - TerraformDestroy
+      environment:
+        type: environment
+        description: Environment
+#         required: true
+        options:
+        - devl
+        - qual
+        - cert
+        - prod
+
+jobs:
+  deploy:
+    name: Terraform
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Code Checkout
+      uses: actions/checkout@v3
+
+#     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
+# #     - shell: bash
+# #       run: cd Infra/Terraform/ 
+
+#     - name: Terraform Init
+#       run: terraform init
+
+
+#     # Checks that all Terraform configuration files adhere to a canonical format
+# #     - name: Terraform Format
+# #       run: terraform fmt -check
+
+#     # Generates an execution plan for Terraform
+#     - name: Terraform Plan
+#       run: terraform init && terraform plan -var-file="env_params/devl.tfvars" --auto-approve
+
+#       # On push to "master", build or change infrastructure according to Terraform configuration files
+#       # Note: It is recommended to set up a required "strict" status check in your repository for "Terraform Cloud". See the documentation on "strict" required status checks for more information: https://help.github.com/en/github/administering-a-repository/types-of-required-status-checks
+      
+      
+      
+# #     - name: Terraform Apply
+# #       if: "contains(${{ github.event.inputs.choice }}==TerraformApply, 'Running Terraform Apply')"
+# #       run: terraform init && terraform apply -var-file="env_params/${{ inputs.environment }}.tfvars" --auto-approve
+
+# #     - name: Terraform Destroy
+# #       if: "contains(${{ github.event.inputs.choice }}==TerraformDestroy, 'Terraform Destroy')"
+# #       run: terraform init && terraform destroy -var-file="env_params/${{ inputs.environment }}.tfvars" --auto-approve      
+       
+      
+      
+#     - name: Terraform Apply
+#       run: terraform init && terraform apply -var-file="env_params/${{ inputs.environment }}.tfvars" --auto-approve
+   
+#     - name: Terraform Destroy
+#       if: github.ref == 'refs/heads/"master"' && github.event_name == 'push'
+#     - name: destroy 
+#       run: terraform init && terraform destroy -var-file="env_params/${{ inputs.environment }}.tfvars" --auto-approve      
+      
+      
+      
+      
+      
+      
+      
+      
+
+
+
+
+ 
+
